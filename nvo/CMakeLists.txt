@@ -36,7 +36,7 @@ if (DOXYGEN_FOUND)
     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile)
     set(DOXYGEN_OUT ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile)
     # request to configure the file
-    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+    configure_file(Doxyfile.in Doxyfile @ONLY)
     message("Doxygen build started")
 
     # note the option ALL which allows to build the docs together with the application

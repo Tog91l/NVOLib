@@ -18,10 +18,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_CURRENT_SOURCE_DIR}/bi
 set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "Vcpkg target triplet")
 #set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}C:\vcpkg")
 
+#set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
+set(libigl_DIR "${vcpkg_root}/installed/x86-windows/share/libigl")
+set(libigl_DIR "${libigl_DIR}" CACHE PATH "Path to libiglConfig.cmake or libigl-config.cmake" FORCE)
+
 set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
+# Устанавливаем переменную для CMake
+set(sfml_DIR "${sfml_DIR}" CACHE PATH "Path to SFMLConfig.cmake or SFML-config.cmake" FORCE)
+#set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
+
 find_package(libigl CONFIG REQUIRED)
- find_package(SFML COMPONENTS graphics REQUIRED)
-#find_package(SFML CONFIG REQUIRED)
+find_package(SFML COMPONENTS graphics REQUIRED)
+
 #find_package(Stb REQUIRED)
  
 add_subdirectory(nvolib)
@@ -36,7 +44,7 @@ if (DOXYGEN_FOUND)
     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile)
     set(DOXYGEN_OUT ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile)
     # request to configure the file
-    configure_file(Doxyfile.in Doxyfile @ONLY)
+    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
     message("Doxygen build started")
 
     # note the option ALL which allows to build the docs together with the application

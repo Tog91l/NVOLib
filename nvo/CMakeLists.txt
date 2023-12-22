@@ -19,7 +19,7 @@ set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "Vcpkg target triplet")
 #set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}C:\vcpkg")
 
 set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
-find_package(libigl CONGIG REQUIRED)
+find_package(libigl CONFIG REQUIRED)
  find_package(SFML COMPONENTS graphics REQUIRED)
 #find_package(SFML CONFIG REQUIRED)
 #find_package(Stb REQUIRED)

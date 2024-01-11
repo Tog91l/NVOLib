@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(glusko-t-a-22-3)
+project(glush
+ko-t-a-22-3)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "cmake")

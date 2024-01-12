@@ -20,6 +20,7 @@ set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "Vcpkg target triplet")
 
 #set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
 #set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
+
 find_package(libigl CONFIG REQUIRED)
 find_package(SFML COMPONENTS graphics REQUIRED)
 

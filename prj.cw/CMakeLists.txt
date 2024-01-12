@@ -1,31 +1,3 @@
-Cmake_minimum_required(VERSION 3.12)
-project(nvolib)
-
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "cmake")
-
-set(CMAKE_VERBOSE_MAKEFILE True)
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True) 
-
-set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
-        CACHE STRING "Vcpkg toolchain file" -G Ninja)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_SOURCE_DIR}/bin.dbg)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_CURRENT_SOURCE_DIR}/bin.rel)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_CURRENT_SOURCE_DIR}/bin.relwithdbg)
-
-set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "Vcpkg target triplet")
-#set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}C:\vcpkg")
-
-#set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
-#set(libigl_DIR "${vcpkg_root}/installed/x86-windows/share/libigl")
-#set(libigl_DIR "${libigl_DIR}" CACHE PATH "Path to libiglConfig.cmake or libigl-config.cmake" FORCE)
-
-#set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
-
-#set(sfml_DIR "${sfml_DIR}" CACHE PATH "Path to SFMLConfig.cmake or SFML-config.cmake" FORCE)
-#set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
 
 find_package(libigl CONFIG REQUIRED)
 find_package(SFML COMPONENTS graphics REQUIRED)
@@ -89,11 +61,16 @@ if(INSTALL_TARGET)
     )
 endif()
 install(TARGETS nvolib DESTINATION bin)
-               # RUNTIME DESTINATION bin
-                #LIBRARY DESTINATION lib 
-                #ARCHIVE DESTINATION static)
 install(DIRECTORY nvolib/include/ DESTINATION include/nvolib)
-install(FILES nvolib/nvolib.cpp DESTINATION nvolib)
-install(TARGETS tester DESTINATION bin)
-install(DIRECTORY tester/ DESTINATION bin/)
+install(FILES nvolib/nvolib.cpp nvolib/include/nvolib/nvolib.hpp DESTINATION include/nvolib)
+
+#install(TARGETS tester DESTINATION bin)
+install(DIRECTORY tester/ DESTINATION bin/tester)
+install(FILES tester/tester.cpp DESTINATION bin/tester)
+install(FILES tester/CMakeLists.txt DESTINATION bin/tester)
+
+
+install(FILES CMakeLists.txt DESTINATION .)
+install(FILES nvolib/CMakeLists.txt DESTINATION nvolib)
+
 install(DIRECTORY cmake/ DESTINATION .)

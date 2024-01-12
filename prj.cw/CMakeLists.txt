@@ -19,12 +19,12 @@ set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "Vcpkg target triplet")
 #set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}C:\vcpkg")
 
 #set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
-set(libigl_DIR "${vcpkg_root}/installed/x86-windows/share/libigl")
-set(libigl_DIR "${libigl_DIR}" CACHE PATH "Path to libiglConfig.cmake or libigl-config.cmake" FORCE)
+#set(libigl_DIR "${vcpkg_root}/installed/x86-windows/share/libigl")
+#set(libigl_DIR "${libigl_DIR}" CACHE PATH "Path to libiglConfig.cmake or libigl-config.cmake" FORCE)
 
-set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
-# Устанавливаем переменную для CMake
-set(sfml_DIR "${sfml_DIR}" CACHE PATH "Path to SFMLConfig.cmake or SFML-config.cmake" FORCE)
+#set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
+
+#set(sfml_DIR "${sfml_DIR}" CACHE PATH "Path to SFMLConfig.cmake or SFML-config.cmake" FORCE)
 #set(SFML_DIR "${VCPKG_ROOT}/installed/x64-windows/share/SFML")
 
 find_package(libigl CONFIG REQUIRED)

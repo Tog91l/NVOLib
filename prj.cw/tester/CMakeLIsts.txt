@@ -1,5 +1,5 @@
 add_executable(tester tester.cpp)
 target_link_libraries(tester PRIVATE nvolib)
-target_include_directories(test PRIVATE
+target_include_directories(tester PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/../nvolib/include
 )

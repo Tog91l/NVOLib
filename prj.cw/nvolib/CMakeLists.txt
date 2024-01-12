@@ -11,3 +11,5 @@ target_link_libraries( nvolib igl::igl_core igl_copyleft::igl_copyleft_core)
 include_directories( "${VCPKG_ROOT}/installed/x64-windows/include")
 
  target_link_libraries(nvolib sfml-graphics)
+
+ install(TARGETS nvolib)
